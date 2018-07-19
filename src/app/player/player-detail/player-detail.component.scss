@@ -1,0 +1,23 @@
+.player--image {
+  height: 50px;
+  width: 50px;
+  display: block;
+  float: left;
+  margin-right: 1em;
+}
+
+.player--image img {
+  max-width: 100%;
+  border-radius: 25px;
+}
+
+.player--info h4 {
+  line-height: 34px;
+  margin-bottom: 0;
+}
+
+.player--info p {
+  line-height: 1em;
+  font-size: 0.8em;
+  color: #8a8a8a;
+}
