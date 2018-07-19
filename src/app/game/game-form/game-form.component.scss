@@ -41,7 +41,7 @@ h3 {
 }
 .game-table--surface {
   background: white;
-  border: 5px solid #DBDBDB;
+  border: 5px solid #0217C0;
   height: calc((100vw - 2rem)/1.9);
   width: calc(100vw - 2rem);
   border-radius: 8px;
@@ -58,7 +58,7 @@ h3 {
   position: absolute;
   top: 50%;
   transform: translate(-5px, -50%);
-  border: 3px solid #DBDBDB;
+  border: 3px solid #0217C0;
 }
 
 .game-table--surface:after {
@@ -73,7 +73,7 @@ h3 {
   left: 50%;
   display: block;
   transform: translateX(-50%);
-  background: #DBDBDB;
+  background: #0217C0;
 }
 
 /* .game-table--surface .circle:after {
@@ -95,7 +95,6 @@ h3 {
   left: 0;
   right: 100%;
   height: 100%;
-  background-color: yellow;
 }
 
 .game-table--handle-bottom {
@@ -109,16 +108,16 @@ h3 {
 .handle {
   height: calc((100vw - 30px)/1.8 + 50px);
   width: 5px;
-  background: #DBDBDB;
+  background: #0217C0;
   position: absolute;
   transform: translateX(-50%);
 }
 .handle:after {
   content: '';
-  height: 40px;
+  height: 35px;
   width: 10px;
   display: block;
-  background: #DBDBDB;
+  background: #0217C0;
   position: absolute;
   transform: translateX(-25%);
 }
@@ -221,7 +220,7 @@ h3 {
 }
 
 .score input {
-  width: 1em;
+  width: 90px;
   text-align: center;
   &:focus {
     outline: none;

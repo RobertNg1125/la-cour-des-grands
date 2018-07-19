@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
+import * as $ from 'jquery';
 
 import { PlayerService } from "../../player/shared/player.service";
 import { Player } from '../../player/shared/player.model';
@@ -19,8 +20,7 @@ export class PlayerLauncherComponent implements OnInit {
     this.getAllPlayers()
   }
 
-  players: Player[]
-  @Input() selectedPlayer: Player
+  players: any[]
 
   getAllPlayers() {
     this.playerService.getPlayers()
@@ -32,7 +32,13 @@ export class PlayerLauncherComponent implements OnInit {
       })
   }
 
+  @Output() selectPlayerEvent = new EventEmitter<any>();
+
   onSelectedPlayer(player) {
-    this.selectedPlayer = player;
+    this.selectPlayerEvent.emit(player)
+    $('.launcher').toggleClass('js-open')
   }
+
+
+
 }

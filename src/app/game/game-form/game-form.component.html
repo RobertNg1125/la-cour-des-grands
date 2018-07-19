@@ -1,12 +1,21 @@
-<app-player-launcher id="launcher-players"></app-player-launcher>
+<app-player-launcher id="launcher-players"
+  (selectPlayerEvent)="onLauncherSelected($event)"></app-player-launcher>
+
+<ng-template #templateEmptyUser>
+  <img src="assets/images/default-user.jpg" />
+</ng-template>
 
 <form>
   <div class="team">
-    <a class="team-player team-a--striker team-a" (click)="showSelectPlayer()">
-      <img src="https://avatars1.githubusercontent.com/u/39343849?s=460&v=4">
+    <a class="team-player team-a--striker team-a" (click)="showSelectPlayer('AStriker')">
+      <div *ngIf="teamAStriker?.photoURL; else templateEmptyUser">
+        <img src="{{ teamAStriker.photoURL }}">
+      </div>
       </a>
-    <a class="team-player team-a--defender team-a" (click)="showSelectPlayer()">
-      <img src="https://avatars3.githubusercontent.com/u/31519019?s=400&u=6e3497bf246ebfb43e982e2766fc9ceaf3c2b66c&v=4">
+    <a class="team-player team-a--defender team-a" (click)="showSelectPlayer('ADefender')">
+      <div *ngIf="teamADefender?.photoURL; else templateEmptyUser">
+        <img src="{{ teamADefender.photoURL }}">
+      </div>
     </a>
   </div>
 
@@ -14,10 +23,10 @@
     <div class="game-table--surface">
       <div class="circle"></div>
       <div class="score score--a">
-        <input type="number" name="score-a" value="0" maxlength="2">
+        <input type="number" name="scoreA" [(ngModel)]="scoreA" maxlength="2">
       </div>
       <div class="score score--b">
-        <input type="number" name="score-a" value="0" maxlength="2">
+        <input type="number" name="scoreB" [(ngModel)]="scoreB" maxlength="2">
       </div>
     </div>
     <div class="game-table--handle game-table--handle-bottom">
@@ -36,16 +45,20 @@
   </div>
 
   <div class="team">
-    <a class="team-player team-b--striker team-b" (click)="showSelectPlayer()">
-      <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/33398253_10216153904296312_4652485875572146176_o.jpg?_nc_cat=0&oh=260068c42ba1139f52de9f193f3c66d7&oe=5BD92F99">
+    <a class="team-player team-b--striker team-b" (click)="showSelectPlayer('BStriker')">
+      <div *ngIf="teamBStriker?.photoURL; else templateEmptyUser">
+        <img src="{{ teamBStriker.photoURL }}">
+      </div>
     </a>
-    <a class="team-player team-b--defender team-b" (click)="showSelectPlayer()">
-      <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/28870352_10154997855456511_1787420086606004835_n.jpg?_nc_cat=0&oh=92f88a9a9af8e707273586877c22d06d&oe=5BD42BA3">
+    <a class="team-player team-b--defender team-b" (click)="showSelectPlayer('BDefender')">
+      <div *ngIf="teamBDefender?.photoURL; else templateEmptyUser">
+        <img src="{{ teamBDefender.photoURL }}">
+      </div>
     </a>
   </div>
 
   <div class="form-group" style="text-align: center">
     <button
-      class="btn btn-save">Save game</button>
+      class="btn btn-save" (click)="saveGame()">Save game</button>
   </div>
 </form>

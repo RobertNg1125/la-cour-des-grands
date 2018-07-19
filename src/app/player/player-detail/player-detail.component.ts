@@ -21,16 +21,16 @@ export class PlayerDetailComponent implements OnInit {
   ) { }
 
   key: string
-  player: Player
+  player: any
+
   ngOnInit() {
     this.key = this.activatedRoute.snapshot.paramMap.get('id');
     if(this.key) {
       this.playerService.getPlayer(this.key)
         .snapshotChanges()
         .subscribe(item => {
-          this.player = {key: item.key, ...item.payload.val()}
+          this.player = ({key: item.key, ...item.payload.val()})
         })
-        
     }
   }
 
