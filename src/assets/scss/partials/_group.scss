@@ -1,0 +1,15 @@
+.group-teaser {
+  @include shadow();
+  padding: 1rem;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+
+  .name {
+    font-weight: bold;
+  }
+  .actions {
+    margin-left: auto;
+  }
+}
