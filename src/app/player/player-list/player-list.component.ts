@@ -11,7 +11,7 @@ import { PlayerService } from '../shared/player.service';
 export class PlayerListComponent implements OnInit {
 
   constructor(
-    private playerService: PlayerService
+    private playerService: PlayerService,
   ) { }
 
   players: any[]

@@ -1,6 +1,15 @@
 export class Player {
-  key: string
-  firstName: string
-  lastName: string
+  uid: string
   photoURL: string
+  displayName: string
+
+  constructor(
+    uid: string,
+    displayName: string,
+    photoURL: string
+  ) {
+    this.uid = uid
+    this.photoURL = photoURL
+    this.displayName = displayName
+  }
 }

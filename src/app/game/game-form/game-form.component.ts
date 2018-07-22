@@ -31,11 +31,11 @@ export class GameFormComponent implements OnInit {
 
   saveGame() {
     // update game
-    this.gameService.addGame(
-      this.teamAStriker.key, this.teamADefender.key,
-      this.teamBStriker.key, this.teamBDefender.key,
-      this.scoreA, this.scoreB
-    )
+    // this.gameService.addGame(
+    //   this.teamAStriker.key, this.teamADefender.key,
+    //   this.teamBStriker.key, this.teamBDefender.key,
+    //   this.scoreA, this.scoreB
+    // )
 
   }
 

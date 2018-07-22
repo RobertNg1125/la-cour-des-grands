@@ -1,10 +1,12 @@
 <h3>Players</h3>
 
 <div *ngFor="let player of players" class="player">
-  <div class="player--image">
+  <app-player-teaser [player]="player">
+  </app-player-teaser>
+  <!-- <div class="player--image">
     <a routerLink="/player/{{ player.key}}">
       <img src="{{ player.photoURL }}"
-        class="img-fluid" 
+        class="img-fluid"
         alt="{{ player.firstName}} {{ player.lastName}}">
     </a>
   </div>
@@ -15,6 +17,5 @@
       </a>
     </h4>
     <p>Sergeant <span>(under 50 games)</span></p>
-    <!-- <a routerLink="/player/{{ player.key }}/edit">Edit</a> -->
-  </div>
+  </div> -->
 </div>

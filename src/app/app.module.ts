@@ -15,6 +15,10 @@ import { PlayerListComponent } from './player/player-list/player-list.component'
 import { GameFormComponent } from './game/game-form/game-form.component';
 import { PlayerLauncherComponent } from './player/player-launcher/player-launcher.component';
 import { PlayerDetailComponent } from './player/player-detail/player-detail.component';
+import { PlayerTeaserComponent } from './player/player-teaser/player-teaser.component';
+import { GroupFormComponent } from './group/group-form/group-form.component';
+import { GroupListComponent } from './group/group-list/group-list.component';
+import { GroupDetailComponent } from './group/group-detail/group-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { PlayerDetailComponent } from './player/player-detail/player-detail.comp
     PlayerListComponent,
     GameFormComponent,
     PlayerLauncherComponent,
-    PlayerDetailComponent
+    PlayerDetailComponent,
+    PlayerTeaserComponent,
+    GroupFormComponent,
+    GroupListComponent,
+    GroupDetailComponent
   ],
   imports: [
     BrowserModule,

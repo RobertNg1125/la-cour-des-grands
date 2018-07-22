@@ -1,10 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col-12 offset-md-3">
-      <app-navigation></app-navigation>
-      <main class="main">
-        <router-outlet></router-outlet>
-      </main>
+
+      <div *ngIf="afAuth.user | async as user; else showLogin">
+        <app-navigation></app-navigation>
+        <main class="main">
+          <router-outlet></router-outlet>
+        </main>
+      </div>
+
     </div>
   </div>
 </div>
+
+
+<ng-template #showLogin>
+  <p>Please login.</p>
+  <button (click)="login()">Login with Google</button>
+</ng-template>
