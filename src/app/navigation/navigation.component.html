@@ -16,7 +16,10 @@
 
   <div class="nav-wrapper" (click)="closeNavbar()">
     <div class="nav-inner">
-      <app-player-teaser [player]="currentPlayer"></app-player-teaser>
+      <app-player-teaser
+        class="text-white"
+        [player]="currentPlayer">
+      </app-player-teaser>
 
       <ul class="navbar-nav mr-auto">
         <li class="nav-item"><a class="nav-link" routerLink="/">Dashboard</a></li>

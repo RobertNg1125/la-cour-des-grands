@@ -1,21 +1,7 @@
 <h3>Players</h3>
 
-<div *ngFor="let player of players" class="player">
+<div *ngFor="let player of players" class="player has-shadow">
   <app-player-teaser [player]="player">
   </app-player-teaser>
-  <!-- <div class="player--image">
-    <a routerLink="/player/{{ player.key}}">
-      <img src="{{ player.photoURL }}"
-        class="img-fluid"
-        alt="{{ player.firstName}} {{ player.lastName}}">
-    </a>
-  </div>
-  <div class="player--info">
-    <h4>
-      <a routerLink="/player/{{ player.key}}">
-        {{ player.firstName}} {{ player.lastName}}
-      </a>
-    </h4>
-    <p>Sergeant <span>(under 50 games)</span></p>
-  </div> -->
+
 </div>

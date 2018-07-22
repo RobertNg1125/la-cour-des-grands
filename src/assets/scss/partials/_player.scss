@@ -12,15 +12,19 @@ $size: 40px;
 
   }
   .info {
-    padding: 1rem;
+    padding: 0 1rem;
     display: flex;
     flex-direction: column;
-    color: white;
 
-    h5 {
-      margin-bottom: 0;
+    .name {
+      font-weight: bold;
     }
+  }
+}
 
+.player-teaser.text-white {
+  .info {
+    color: white;
   }
 }
 
@@ -60,4 +64,9 @@ $size: 40px;
 }
 .team-b--defender {
   left: calc(1.5 * (100vw - 30px)/9);
+}
+
+.player {
+  @include shadow();
+  margin-bottom: 1rem;
 }
