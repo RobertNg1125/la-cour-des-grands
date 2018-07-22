@@ -1,22 +1,45 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+import { auth } from 'firebase';
+
+import { Player } from '../player/shared/player.model';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+  styleUrls: ['./navigation.component.scss'],
+  providers: [AngularFireAuth]
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public afAuth: AngularFireAuth
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loadCurrentUser()
+  }
 
   title = 'La cour<br/>des Grands';
-
-  navbarOpen = false;
+  currentPlayer: Player
 
   toggleNavbar() {
-    this.navbarOpen = !this.navbarOpen;
+    $('body').toggleClass('js-nav-open')
+  }
+
+  loadCurrentUser() {
+    const currentUser = this.afAuth.auth.currentUser
+    this.currentPlayer = new Player(currentUser.uid, currentUser.displayName, currentUser.photoURL)
+  }
+
+  closeNavbar() {
+    $('body').removeClass('js-nav-open')
+  }
+
+  logOut() {
+    this.afAuth.auth.signOut();
   }
 
 }
