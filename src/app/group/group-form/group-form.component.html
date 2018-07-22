@@ -1,0 +1,16 @@
+<form (ngSubmit)="onSubmit()" #groupForm="ngForm">
+  <div class="form-group">
+    <label for="name">Group name</label>
+    <input type="text" class="form-control"
+      required
+      [(ngModel)]="name"
+      name="name" id="name">
+    <p class="help-block">The Avenger team</p>
+  </div>
+
+  <div class="form-action">
+    <button type="button" name="button"
+      (click)="onSubmit()"
+      class="btn btn-primary">Save</button>
+  </div>
+</form>

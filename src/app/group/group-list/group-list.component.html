@@ -1,0 +1,12 @@
+<div *ngFor="let group of groups" class="group-teaser">
+  <div class="name">
+    <a routerLink='/group/{{ group.key }}'>
+      {{ group.name }}
+    </a>
+  </div>
+  <div *ngIf="userGroups?.indexOf(group.key) != false" class="actions">
+    <a (click)="joinGroup(group.key)"
+      class="btn btn-info">Join</a>
+  </div>
+
+</div>
