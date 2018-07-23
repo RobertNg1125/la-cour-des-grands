@@ -23,15 +23,15 @@ export class NavigationComponent implements OnInit {
   }
 
   title = 'La cour<br/>des Grands';
-  currentPlayer: Player
+  currentPlayer: any
 
   toggleNavbar() {
     $('body').toggleClass('js-nav-open')
   }
 
   loadCurrentUser() {
-    const currentUser = this.afAuth.auth.currentUser
-    this.currentPlayer = new Player(currentUser.uid, currentUser.displayName, currentUser.photoURL)
+    this.currentPlayer = this.afAuth.auth.currentUser
+    //this.currentPlayer = new Player(currentUser.uid, currentUser.displayName, currentUser.photoURL)
   }
 
   closeNavbar() {

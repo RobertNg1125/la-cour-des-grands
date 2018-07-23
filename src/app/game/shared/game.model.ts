@@ -4,6 +4,21 @@ export class Game {
   teamADefender: string;
   teamBStriker: string;
   teamBDefender: string;
-  scoreA: 0;
-  scoreB: 0;
+  scoreA: number = 0;
+  scoreB: number = 0;
+
+  // constructor(teamAStriker: string, teamADefender: string, 
+  //   teamBStriker: string, teamBDefender: string,
+  //   scoreA: number, scoreB: number) {
+  //   this.teamAStriker = teamAStriker
+  //   this.teamADefender = teamADefender
+  //   this.teamBStriker = teamBStriker
+  //   this.teamBDefender = teamBDefender
+  //   this.scoreA = scoreA
+  //   this.scoreB = scoreB
+  // }
+  //
+  // save() {
+  //
+  // }
 }

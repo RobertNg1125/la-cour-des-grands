@@ -1,6 +1,7 @@
 $size: 40px;
 
 .player-teaser {
+  @include card();
   display: flex;
   align-items: center;
   padding: 1rem;
@@ -29,27 +30,40 @@ $size: 40px;
 }
 
 /* Player */
+$team-member-size: 50px;
 .team {
   position: relative;
-  height: 60px;
+  height: $team-member-size;
 }
 
 .team-player {
-  @include shadow();
-
-  height: 70px;
-  width: 70px;
+  height: $team-member-size;
+  width: $team-member-size;
   display: block;
   font-size: 0;
-  background-color: #DBDBDB;
+  background-color: #FFEDA4;
   border-radius: 50%;
-  overflow: hidden;
 
   position: absolute;
+  z-index: 1;
   transform: translateX(-50%);
+
+  &:after {
+    content: '';
+    display: block;
+    height: calc(#{$team-member-size} + 16px);
+    width: calc(#{$team-member-size} + 16px);
+    background-color: #FFF3CC;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    transform: translate(-8px, -8px);
+    border-radius: 50%;
+  }
 }
 .team-player img{
   width: 100%;
+  border-radius: 50%;
 }
 
 .team-a--striker {

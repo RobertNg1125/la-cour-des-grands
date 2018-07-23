@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { PlayerListComponent } from './player/player-list/player-list.component';
 import { PlayerDetailComponent } from './player/player-detail/player-detail.component';
+import { PlayerFormComponent } from "./player/player-form/player-form.component";
 
 import { GameFormComponent } from './game/game-form/game-form.component';
 
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'group', component: GroupListComponent},
   { path: 'group/add', component: GroupFormComponent},
   { path: 'group/:id', component: GroupDetailComponent },
+  { path: 'group/:id/player/add', component: PlayerFormComponent}
 ]
 
 @NgModule({

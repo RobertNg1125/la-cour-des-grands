@@ -1,18 +1,12 @@
 
 <div class="image">
-  <img src="{{ player.photoURL }}" alt="{{ player.displayName }}" class="img-fluid">
+  <img src="{{ player?.photoURL }}" alt="{{ player?.displayName }}" class="img-fluid">
 </div>
 
 <div class="info">
-  <div class="name" *ngIf="player.displayName else showFirstLastName">
-    {{ player.displayName }}
+  <div class="name" *ngIf="player?.displayName">
+    {{ player?.displayName }}
   </div>
 
   <small class="rank">Sergant</small>
 </div>
-
-<ng-template #showFirstLastName>
-  <div class="name">
-    {{ player.firstName }} {{ player.lastName}}
-  </div>
-</ng-template>

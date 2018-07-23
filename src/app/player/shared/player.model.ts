@@ -1,14 +1,14 @@
 export class Player {
-  uid: string
+  key: string
   photoURL: string
   displayName: string
 
   constructor(
-    uid: string,
+    key: string,
     displayName: string,
     photoURL: string
   ) {
-    this.uid = uid
+    this.key = key
     this.photoURL = photoURL
     this.displayName = displayName
   }

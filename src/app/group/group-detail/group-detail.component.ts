@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { GroupService } from "../shared/group.service";
+import { GroupService } from "../shared/group.service"
+import { PlayerService } from "../../player/shared/player.service"
+
 
 @Component({
   selector: 'app-group-detail',
@@ -15,7 +18,8 @@ export class GroupDetailComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private location: Location,
-    private groupService: GroupService
+    private groupService: GroupService,
+    private playerService: PlayerService
   ) { }
 
   key: string
@@ -42,9 +46,8 @@ export class GroupDetailComponent implements OnInit {
     this.groupService.getMembersOfGroup(groupId)
       .valueChanges()
       .subscribe(members => {
-        this.members = members.map(member => {
-          console.log(member)
-          return ''
+        this.members = members.map(key => {
+          return this.playerService.getPlayer(key as string).valueChanges()
         })
       })
   }

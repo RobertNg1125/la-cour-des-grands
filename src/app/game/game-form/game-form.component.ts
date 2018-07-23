@@ -24,18 +24,18 @@ export class GameFormComponent implements OnInit {
 
   playerEditing: string
 
-  @Input() scoreA: number
-  @Input() scoreB: number
+  @Input() scoreA: number = 0
+  @Input() scoreB: number = 0
 
   ngOnInit() {}
 
   saveGame() {
     // update game
-    // this.gameService.addGame(
-    //   this.teamAStriker.key, this.teamADefender.key,
-    //   this.teamBStriker.key, this.teamBDefender.key,
-    //   this.scoreA, this.scoreB
-    // )
+    this.gameService.addGame(
+      this.teamAStriker.key, this.teamADefender.key,
+      this.teamBStriker.key, this.teamBDefender.key,
+      this.scoreA, this.scoreB
+    )
 
   }
 
@@ -58,9 +58,7 @@ export class GameFormComponent implements OnInit {
       case 'BDefender':
         this.teamBDefender = $event
         break
-
     }
-    //console.log($event)
   }
 
 }

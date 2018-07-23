@@ -19,6 +19,7 @@ import { PlayerTeaserComponent } from './player/player-teaser/player-teaser.comp
 import { GroupFormComponent } from './group/group-form/group-form.component';
 import { GroupListComponent } from './group/group-list/group-list.component';
 import { GroupDetailComponent } from './group/group-detail/group-detail.component';
+import { PlayerFormComponent } from './player/player-form/player-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { GroupDetailComponent } from './group/group-detail/group-detail.componen
     PlayerTeaserComponent,
     GroupFormComponent,
     GroupListComponent,
-    GroupDetailComponent
+    GroupDetailComponent,
+    PlayerFormComponent
   ],
   imports: [
     BrowserModule,

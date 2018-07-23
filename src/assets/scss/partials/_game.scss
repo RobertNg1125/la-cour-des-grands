@@ -1,20 +1,30 @@
 /* Table  */
-$table-color: #333;
+$table-color: #c1c1c1;
 
 $table-width: calc(100vw - 2rem);
-$table-height: calc(#{$table-width}/1.9);
+$table-height: calc(#{$table-width}/2.1);
 
-$penalty-area-width: calc(#{$table-height}/4); // calc(100vw/9);
-$penalty-area-height: calc(#{$table-height}/2); // calc(100vw/5);
+$penalty-area-width: calc(#{$table-height}/4);
+$penalty-area-height: calc(#{$table-height}/2);
 
-$handle-length: calc(#{$table-height} + 50px);
-$handle-width: 5px;
+$rod-length: calc(#{$table-height} + 40px);
+$rod-width: 5px;
 
+$handle-length: calc(#{$table-height}/5);
+$handle-width: 10px;
+
+@mixin handle-position($i) {
+  left: calc(#{$i} * (100vw - 30px)/9);
+}
+
+.table-wrapper {
+  margin-bottom: 2rem;
+}
 
 .game-table {
   position: relative;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 .game-table--surface {
   background: white;
@@ -53,7 +63,7 @@ $handle-width: 5px;
 }
 
 
-.game-table--handle {
+.game-table--rod {
   position: absolute;
   z-index: 1;
   left: 0;
@@ -61,89 +71,78 @@ $handle-width: 5px;
   height: 100%;
 }
 
-.handle {
-  height: $handle-length;
-  width: $handle-width;
+.rod {
+  height: $rod-length;
+  width: $rod-width;
   background: $table-color;
   position: absolute;
   transform: translateX(-50%);
 
   &:after {
     content: '';
-    height: 35px;
-    width: 10px;
+    height: $handle-length;
+    width: $handle-width;
     display: block;
     background: $table-color;
     position: absolute;
     transform: translateX(-25%);
+
   }
 }
 
-.game-table--handle-bottom {
-  top: -1rem;
-  .handle:after {
-    bottom: -10px;
+.game-table--rod-top {
+  top: -15px;
+  .rod:after {
+    top: -32px;
   }
 }
 
-.game-table--handle-top {
-  top: -2rem;
-  .handle:after {
-    top: -25px;
+.game-table--rod-bottom {
+  top: -20px;
+  .rod:after {
+    bottom: -32px;
   }
 }
 
-@mixin handle-position($i) {
-  left: calc(#{$i} * (100vw - 30px)/9);
-}
-
-.handle-bottom-1 {
+.rod-bottom-1 {
   @include handle-position(1);
 }
-.handle-bottom-2 {
+.rod-bottom-2 {
   @include handle-position(2);
 }
-.handle-bottom-3 {
+.rod-bottom-3 {
   @include handle-position(4);
 }
-.handle-bottom-4 {
+.rod-bottom-4 {
   @include handle-position(6);
 }
 
-.handle-top-1 {
+.rod-top-1 {
   @include handle-position(3);
 }
-.handle-top-2 {
+.rod-top-2 {
   @include handle-position(5);
 }
-.handle-top-3 {
+.rod-top-3 {
   @include handle-position(7);
 }
-.handle-top-4 {
+.rod-top-4 {
   @include handle-position(8);
 }
 
 
-.game--score {
-  text-align: center;
-  position: relative;
-  margin-bottom: 2rem;
-  &:after {
-    content: ':';
-    position: absolute;
-    font-size: 2rem;
-    font-family: 'Anton', sans-serif;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+.game-score {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
 
-  &.score--a {
-    text-align: right;
-  }
-
-  &.score--b {
-    text-align: left;
-    right: 0;
+  input {
+    border: none;
+    width: 60px;
+    text-align: center;
+    font-size: 4rem;
+    font-family: $headings-font-family;
   }
 }

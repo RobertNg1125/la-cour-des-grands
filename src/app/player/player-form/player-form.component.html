@@ -1,0 +1,26 @@
+<form (ngSubmit)="onSubmit()" #playerForm="ngForm">
+  <div class="form-group">
+    <label for="displayName">Name</label>
+    <input type="text" class="form-control"
+      [(ngModel)]="model.displayName"
+      #displayName="ngModel"
+      name="displayName"
+      required />
+  </div>
+
+  <div class="form-group">
+    <label for="photoURL">Photo URL</label>
+    <input type="text" class="form-control"
+      [(ngModel)]="model.photoURL"
+      #photoURL="ngModel"
+      name="photoURL"
+      required>
+  </div>
+
+  <div class="form-actions">
+    <button type="button" name="button"
+      (click)="newPlayer(); playerForm.reset()"
+      [disabled]="!playerForm.form.valid"
+      class="btn btn-primary">Save</button>
+  </div>
+</form>

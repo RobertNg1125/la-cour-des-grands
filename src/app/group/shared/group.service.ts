@@ -25,6 +25,7 @@ export class GroupService {
     return this.db.list('/group_player/' + groupId)
   }
 
+
   addGroup(name: string, ownerId: string) {
     const newGroup = this.db.list('/group')
       .push({

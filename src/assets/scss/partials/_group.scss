@@ -1,7 +1,6 @@
 .group-teaser {
-  @include shadow();
+  @include card();
   padding: 1rem;
-  border-radius: 5px;
 
   display: flex;
   align-items: center;
@@ -12,4 +11,11 @@
   .actions {
     margin-left: auto;
   }
+}
+
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
 }
