@@ -1,12 +1,15 @@
 <div class="section-header">
   <h3>{{ group?.name }}</h3>
-  <a routerLink="/group/{{ key }}/player/add"
+  <a routerLink="/group/{{ groupId }}/player/add"
     class="btn btn-primary">Add Player</a>
 </div>
 
-
-
-<div *ngFor="let member of members">
-
-  <app-player-teaser [player]="member|async"></app-player-teaser>
+<div *ngIf="hasMembers; else emptyGroup">
+  <div *ngFor="let member of members">
+    <app-player-teaser [player]="member|async"></app-player-teaser>
+  </div>
 </div>
+
+<ng-template #emptyGroup>
+  This group is empty
+</ng-template>

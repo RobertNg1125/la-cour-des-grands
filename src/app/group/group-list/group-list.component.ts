@@ -23,6 +23,7 @@ export class GroupListComponent implements OnInit {
     this.loadGroups()
     this.loadGroupsOfCurrentUser()
 
+    console.log(this.currentUser.uid)
   }
 
   groups: any[]
@@ -50,16 +51,12 @@ export class GroupListComponent implements OnInit {
   }
 
 
-  userGroups: any[]
+  userGroups: any
 
   loadGroupsOfCurrentUser() {
     this.groupService.getGroupsByUser(this.currentUser.uid)
       .valueChanges()
-      .subscribe(groups => {
-        this.userGroups = groups.map(group => {
-          return group
-        })
-      })
+      .subscribe(groups => this.userGroups = groups)
   }
 
 }

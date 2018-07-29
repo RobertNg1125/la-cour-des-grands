@@ -22,28 +22,29 @@ export class GroupService {
     return this.db.object('/group/' + groupId)
   }
   getMembersOfGroup(groupId: string) {
-    return this.db.list('/group_player/' + groupId)
+    return this.db.list('/group_players/' + groupId)
   }
-
 
   addGroup(name: string, ownerId: string) {
     const newGroup = this.db.list('/group')
       .push({
         name: name,
         ownerId: ownerId,
-        date: new Date().toString(),
+        created: Date.now(),
       });
 
-    this.db.list('/group_player/' + newGroup.key).push(ownerId)
-    this.db.list('/player_group/' + ownerId).push(newGroup.key)
+    this.db.list('/group_watchers/' + newGroup.key).push(ownerId)
+    this.db.list('/user_groups/' + ownerId).push(newGroup.key)
+
+    return newGroup
   }
 
   joinGroup(groupId: string, playerId: string) {
-    this.db.list('/player_group/' + playerId).push(groupId)
-    this.db.list('/group_player/' + groupId).push(playerId)
+    this.db.list('/user_groups/' + playerId).push(groupId)
+    this.db.list('/group_watchers/' + groupId).push(playerId)
   }
 
   getGroupsByUser(userId: string) {
-    return this.db.list('/player_group/' + userId)
+    return this.db.list('/user_groups/' + userId)
   }
 }

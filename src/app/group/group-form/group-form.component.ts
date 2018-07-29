@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { auth } from 'firebase';
@@ -14,7 +15,9 @@ export class GroupFormComponent implements OnInit {
 
   constructor(
     public afAuth: AngularFireAuth,
-    private groupService: GroupService
+    private groupService: GroupService,
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -33,7 +36,9 @@ export class GroupFormComponent implements OnInit {
     this.groupService.addGroup(
       this.name,
       this.currentUser.uid
-    )
+    ).then((group) => {
+      this.router.navigate(['/group/' + group.key])
+    })
   }
 
 }

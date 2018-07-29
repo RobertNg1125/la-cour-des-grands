@@ -1,7 +1,7 @@
 export class Player {
   key: string
   photoURL: string
-  displayName: string
+  displayName = '../assets/images/default-user.jpg'
 
   constructor(
     key: string,

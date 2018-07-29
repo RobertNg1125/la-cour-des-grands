@@ -12,11 +12,11 @@ import { GroupListComponent } from "./group/group-list/group-list.component"
 import { GroupDetailComponent } from "./group/group-detail/group-detail.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/player', pathMatch: 'full' },
-  { path: 'player', component: PlayerListComponent },
+  { path: '', redirectTo: '/group', pathMatch: 'full' },
+  // { path: 'player', component: PlayerListComponent },
 
   // { path: 'player/add', component: PlayerFormComponent },
-  { path: 'player/:id', component: PlayerDetailComponent },
+  // { path: 'player/:id', component: PlayerDetailComponent },
   // { path: 'player/:id/edit', component: PlayerFormComponent },
   //
   // { path: 'games', component: GamesComponent },
@@ -26,8 +26,9 @@ const routes: Routes = [
 
   { path: 'group', component: GroupListComponent},
   { path: 'group/add', component: GroupFormComponent},
-  { path: 'group/:id', component: GroupDetailComponent },
-  { path: 'group/:id/player/add', component: PlayerFormComponent}
+  { path: 'group/:groupId', component: GroupDetailComponent },
+  { path: 'group/:groupId/player/add', component: PlayerFormComponent},
+  { path: 'group/:groupId/player/:playerId', component: PlayerDetailComponent },
 ]
 
 @NgModule({

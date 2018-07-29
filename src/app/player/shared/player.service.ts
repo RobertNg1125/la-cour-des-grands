@@ -19,25 +19,19 @@ export class PlayerService {
 
   getPlayer(playerId: string) {
     return this.db.object('/player/' + playerId);
-    
+
   }
 
-  // getPlayerMultiple() {
-  //   return this.db.list('/player', ref => ref.)
-  // }
-
   addPlayer(displayName: string, photoURL: string, groupId: string) {
-    this.db.list('/player')
+    const newPlayerRef = this.db.list('/player')
       .push({
         displayName: displayName,
         photoURL: photoURL,
-      })
-      .then(newPlayer => {
-        // Update relation /player_group and /group_player
-        this.db.list('/player_group/' + newPlayer.key).push(groupId)
-        this.db.list('/group_player/' + groupId).push(newPlayer.key)
+        group: groupId
       })
 
+    this.db.list('/group_players/' + groupId).push(newPlayerRef.key)
 
+    return newPlayerRef
   }
 }
