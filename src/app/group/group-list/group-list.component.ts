@@ -22,8 +22,6 @@ export class GroupListComponent implements OnInit {
     this.loadCurrentUser()
     this.loadGroups()
     this.loadGroupsOfCurrentUser()
-
-    console.log(this.currentUser.uid)
   }
 
   groups: any[]
@@ -46,8 +44,8 @@ export class GroupListComponent implements OnInit {
     this.currentUser = this.afAuth.auth.currentUser
   }
 
-  joinGroup(groupId) {
-    this.groupService.joinGroup(groupId, this.currentUser.uid)
+  toggleJoiningGroup(groupId) {
+    this.groupService.toggleJoiningGroup(groupId, this.currentUser.uid)
   }
 
 

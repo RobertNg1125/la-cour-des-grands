@@ -4,9 +4,10 @@
       {{ group.name }}
     </a>
   </div>
-  <div *ngIf="userGroups?.indexOf(group.key) == -1" class="actions">
-    <a (click)="joinGroup(group.key)"
-      class="btn"><i class="far fa-star"></i></a>
+  <div class="actions">
+    <a (click)="toggleJoiningGroup(group.key)">
+      <i *ngIf="userGroups?.indexOf(group.key) == -1" class="fa fa-star-o" aria-hidden="true"></i>
+      <i *ngIf="userGroups?.indexOf(group.key) >= 0" class="fa fa-star" aria-hidden="true"></i>
+    </a>
   </div>
-
 </div>
